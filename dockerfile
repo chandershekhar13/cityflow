@@ -56,6 +56,7 @@ RUN chmod -R 777 storage bootstrap/cache
 RUN mkdir -p database
 
 RUN touch database/database.sqlite
+RUN php artisan migrate --force
 
 # Generate app key safely
 

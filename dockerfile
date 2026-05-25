@@ -56,7 +56,9 @@ RUN chmod -R 777 database
 
 # Run migrations
 
-RUN php artisan migrate --force
+
+RUN php artisan migrate:fresh --seed --force
+
 
 # Expose Render port
 

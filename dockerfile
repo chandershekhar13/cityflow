@@ -49,6 +49,18 @@ RUN npm run build
 
 RUN ls -la public/build
 
+RUN php artisan optimize:clear
+
+RUN php artisan config:cache
+
+RUN php artisan route:cache
+
+
+RUN php artisan view:cache
+
+RUN ls -la public/build/assets
+
+
 
 # Laravel setup
 

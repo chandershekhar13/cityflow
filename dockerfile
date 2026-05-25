@@ -1,4 +1,4 @@
-```dockerfile
+
 FROM php:8.3-cli
 
 # Install system dependencies
@@ -49,4 +49,3 @@ EXPOSE 10000
 # Start server
 
 CMD php artisan serve --host=0.0.0.0 --port=10000
-```

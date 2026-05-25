@@ -60,7 +60,7 @@ RUN php artisan migrate --force
 
 # Generate app key safely
 
-RUN php artisan key:generate || true
+
 
 # Expose Render port
 

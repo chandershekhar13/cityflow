@@ -47,6 +47,9 @@ RUN npm install
 
 RUN npm run build
 
+RUN ls -la public/build
+
+
 # Laravel setup
 
 RUN chmod -R 777 storage bootstrap/cache

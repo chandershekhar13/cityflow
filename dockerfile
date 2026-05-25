@@ -1,7 +1,4 @@
-
-
 FROM php:8.4-cli
-
 
 # Install system dependencies
 
@@ -43,36 +40,28 @@ RUN composer install --no-dev --optimize-autoloader
 
 RUN npm install
 
-# Build frontend assets
+# Laravel permissions
 
-RUN npm run build
+RUN chmod -R 777 storage
 
-RUN ls -la public/build
+RUN chmod -R 777 bootstrap/cache
 
-RUN ls -la public/build/assets
-
-
-
-# Laravel setup
-
-RUN chmod -R 777 storage bootstrap/cache
-
-# Create SQLite database if missing
+# Create SQLite database
 
 RUN mkdir -p database
 
 RUN touch database/database.sqlite
+
+RUN chmod -R 777 database
+
+# Run migrations
+
 RUN php artisan migrate --force
-
-# Generate app key safely
-
-
 
 # Expose Render port
 
 EXPOSE 10000
 
 # Start Laravel server
-
 
 CMD php -S 0.0.0.0:10000 -t public
